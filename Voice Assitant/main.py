@@ -33,7 +33,7 @@ def takecommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 1
+        #r.pause_threshold = 1
         r.adjust_for_ambient_noise(source, duration=1)
         audio = r.listen(source)
 
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             music_dir = 'C:\Ringtones'
             songs = os.listdir(music_dir)
             print(songs)    
-            os.startfile(os.path.join(music_dir, songs[random.randint(0,len(songs))]))
+            os.startfile(os.path.join(music_dir, songs[random.randint(0,len(songs)-1)]))
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
         elif 'open google' in query:
