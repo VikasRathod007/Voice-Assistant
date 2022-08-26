@@ -6,6 +6,7 @@ import pyttsx3
 import os
 import webbrowser
 import wikipedia
+import random
 from selenium import webdriver
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -84,6 +85,12 @@ if __name__ == "__main__":
             browser = webdriver.Chrome('chromedriver')
             matched_element = browser.get("https://www.google.com/search?q=" +
                                           search1 + "&start=")
+        elif 'play music' in query:
+            #give your music directory path
+            music_dir = 'C:\Ringtones'
+            songs = os.listdir(music_dir)
+            print(songs)    
+            os.startfile(os.path.join(music_dir, songs[random.randint(0,len(songs))]))
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
         elif 'open google' in query:
